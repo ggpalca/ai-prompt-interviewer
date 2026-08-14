@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0c;
+  --background-elevated: #131316;
+  --surface: #17171b;
+  --surface-hover: #1e1e23;
+  --border: #2a2a30;
+  --foreground: #f2f0ea;
+  --muted: #97969e;
+  --accent: #d6a94a;
+  --accent-foreground: #171208;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-playfair);
+  --animate-message-in: message-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-typing-dot: typing-dot 1.3s ease-in-out infinite;
+  --animate-modal-in: modal-in 0.25s ease-out both;
+  --animate-modal-pop: modal-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(214, 169, 74, 0.08), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(214, 169, 74, 0.04), transparent);
+  background-attachment: fixed;
+}
